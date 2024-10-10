@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "GreetingMockDataProducer",
+            "request": "launch",
+            "mainClass": "com.learnkafkastreams.producer.GreetingMockDataProducer",
+            "projectName": "greeting-streams-springboot"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GreetingStreamsSpringbootApplication<greeting-streams-springboot>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.learnkafkastreams.GreetingStreamsSpringbootApplication",
+            "projectName": "greeting-streams-springboot",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=38361 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=greeting-streams-springboot"
+        }
+    ]
+}
