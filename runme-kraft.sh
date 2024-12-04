@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KAFKA_HOME=/home/eduardo/desenvolvimento/servers/kafka/kafka_2.13-3.9.0
+KAFKA_HOME=/home/eduardo/desenvolvimento/tools/kafka/kafka_2.13-3.9.0
 echo KAFKA_HOME=$KAFKA_HOME
 
 KAFKA_CLUSTER_ID="$($KAFKA_HOME/bin/kafka-storage.sh random-uuid)"
