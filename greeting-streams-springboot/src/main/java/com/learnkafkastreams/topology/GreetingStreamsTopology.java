@@ -35,7 +35,13 @@ public class GreetingStreamsTopology {
         greetingsStream.print(Printed.<String, Greeting>toSysOut().withLabel("greetingsStream"));
 
         var modifiedStream = greetingsStream
-                .mapValues((readOnlyKey, value) -> new Greeting(value.message().toUpperCase(), value.timeStamp()));
+                .mapValues((readOnlyKey, value) -> {
+                    if (value.message().equals("Error")) {
+                        throw new IllegalStateException("Error occurred");
+                    }
+
+                    return new Greeting(value.message().toUpperCase(), value.timeStamp());
+                });
         modifiedStream.print(Printed.<String, Greeting>toSysOut().withLabel("modifiedStream"));
         modifiedStream.to(GREETINGS_OUTPUT,
                 Produced.with(Serdes.String(), new JsonSerde<>(Greeting.class, this.objectMapper)));
